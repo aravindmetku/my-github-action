@@ -14,7 +14,7 @@ jobs:
         id: hello
         with:
           who-to-greet: 'Hey working?'
-          other-greet: 'the other guy'
+          other-greet: ${{ secrets.GITACT_SE_1 }}
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
