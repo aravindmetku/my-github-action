@@ -14,4 +14,4 @@ outputs:
     description: 'The time we greeted you'
 runs:
   using: 'node12'
-  image: 'index.js'
+  main: 'index.js'
