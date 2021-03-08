@@ -8,6 +8,6 @@ fs.readdirSync(testFolder).forEach(file => {
 });
 
 const core = require( '@actions/core' );
-const nameToGreet = core.getInput( 'who-to-greet' );
+const nameToGreet = core.getInput( 'other-greet' );
 console.log("name to greet normal value - ", nameToGreet)
 core.setOutput( "time", new Date().toDateString());
