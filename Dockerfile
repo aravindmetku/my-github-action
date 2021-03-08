@@ -1,4 +1,4 @@
-image: node:latest
+FROM node:latest
 
 COPY entrypoint.sh /entrypoint.sh
 
