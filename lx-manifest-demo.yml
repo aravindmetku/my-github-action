@@ -1,0 +1,15 @@
+id: cicd-connector-v2
+name: cicd-connector-v2
+description: CI/CD revamped for demo (4/3/21)
+self: https://github.com/leanix/cicd-connector-v2/blob/main/lx-manifest.yml
+owner: christoph.walpert@leanix.net
+teams:
+  - cider
+applications:
+  - leanix-mi
+tags:
+  - tag-group: envirnoment
+    tag-name: staging
+links:
+  - name: vcs
+    url: https://github.com/leanix/cicd-connector-v2
