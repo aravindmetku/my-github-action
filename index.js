@@ -3,7 +3,7 @@
 const core = require('@actions/core');
 const {exec} = require('child_process');
 const fs = require('fs');
-const http = require('http')
+const http = require('https')
 
 exec('npm i license-checker', (err, stdout, stderr) => {
     if (err) {
