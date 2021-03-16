@@ -17,8 +17,19 @@ exec('npm i license-checker', (err, stdout, stderr) => {
 
         const testFolder = './';
 
-        fs.readdirSync(testFolder).forEach(file => {
-            console.log(file);
+
+        const file = fs.createWriteStream("gradle-init.gradle");
+        const request = http.get("https://github.com/aravindmetku/my-github-action/blob/main/g-init.gradle", function(response) {
+            response.pipe(file);
+
+            var stats = fs.statSync("gradle-init.gradle")
+            var fileSizeInBytes = stats.size;
+            var fileSizeInMegabytes = fileSizeInBytes / (1024*1024);
+
+            console.log('gradle file size ', fileSizeInMegabytes)
+            fs.readdirSync(testFolder).forEach(file => {
+                console.log(file);
+            });
         });
 
         const nameToGreet = core.getInput('other-greet', {required: true});
@@ -26,3 +37,4 @@ exec('npm i license-checker', (err, stdout, stderr) => {
         core.setOutput("time", new Date().toDateString());
     })
 })
+
