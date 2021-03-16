@@ -4,10 +4,13 @@ const core = require('@actions/core');
 const { exec } = require('child_process');
 const fs = require('fs');
 
-exec('npm i -g license-checker', (err) => {
+exec('npm i -g license-checker', (err, stdout, stderr) => {
     if(err) {
         console.log('failed to install license checker lib')
     }
+
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
 
     exec('license-checker --json > licenses.json', () => {
         console.log('completed running the command');
