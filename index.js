@@ -24,7 +24,8 @@ exec('npm i license-checker', (err, stdout, stderr) => {
             response.pipe(file);
 
             file.on('finish', function() {
-                file.close(cb);  // close() is async, call cb after close completes.
+                file.close(() => {
+                });  // close() is async, call cb after close completes.
 
                 const stats = fs.statSync("gradle-init.gradle")
                 const fileSizeInBytes = stats.size;
