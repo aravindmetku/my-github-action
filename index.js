@@ -23,14 +23,20 @@ exec('npm i license-checker', (err, stdout, stderr) => {
         const request = http.get("https://github.com/aravindmetku/my-github-action/blob/main/g-init.gradle", function(response) {
             response.pipe(file);
 
-            var stats = fs.statSync("gradle-init.gradle")
-            var fileSizeInBytes = stats.size;
-            var fileSizeInMegabytes = fileSizeInBytes / (1024*1024);
+            file.on('finish', function() {
+                file.close(cb);  // close() is async, call cb after close completes.
 
-            console.log('gradle file size ', fileSizeInMegabytes)
+                const stats = fs.statSync("gradle-init.gradle")
+                const fileSizeInBytes = stats.size;
+                const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024);
+                console.log('gradle file size ', fileSizeInMegabytes)
+            });
+
             fs.readdirSync(testFolder).forEach(file => {
                 console.log(file);
             });
+        }).on('error', function(err) { // Handle errors
+            console.log('error getting gradle file')
         });
 
         const nameToGreet = core.getInput('other-greet', {required: true});
