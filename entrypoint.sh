@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
-java --version
-
 mvn --version
+
+gradle --version
 
 node index.js
