@@ -1,5 +1,7 @@
 const fs = require('fs');
-console.log("this is printed from node js")
+
+const host = core.getInput("host");
+console.log("this is printed from node js - ", host)
 
 const testFolder = './';
 
