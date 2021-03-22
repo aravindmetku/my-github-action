@@ -3,16 +3,15 @@ RUN apt-get update && apt-get install -y openjdk-8-jdk && apt-get install maven 
 
 RUN export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
-#install Gradle
-RUN wget -q https://services.gradle.org/distributions/gradle-4.5.1-bin.zip \
-    && unzip gradle-4.5.1-bin.zip -d /opt \
-    && rm gradle-4.5.1-bin.zip
-
-RUN ls /opt
+RUN cd /usr/lib \
+&& wget https://downloads.gradle.org/distributions/gradle-3.4.1-bin.zip -o   gradle-bin.zip \
+&& unzip "gradle-3.4.1-bin.zip" \
+&& ln -s "/usr/gradle-3.4.1/bin/gradle" /usr/bin/gradle \
+&& rm "gradle-bin.zip"
 
 # Set Gradle in the environment variables
-ENV GRADLE_HOME /opt/gradle-4.5.1
-ENV PATH $PATH:/opt/gradle-4.5.1/bin
+ENV GRADLE_HOME=usr/lib/gradle-3.4.1
+ENV PATH=$PATH:$GRADLE_HOME/bin
 
 COPY entrypoint.sh /entrypoint.sh
 COPY . .
