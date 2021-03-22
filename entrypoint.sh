@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash
 
 set -e
 
@@ -11,13 +11,13 @@ if [[ -f "package.json" ]]; then
     echo "Node repository detected. Attempting to generate dependency file"
     npm --version
     node --version
+    mvn --version
+    gradle --version
 fi
 
 if [[ -f "build.gradle" ]]; then
     echo "Gradle repository detected. Attempting to generate dependency file"
     gradle --version
 fi
-
-echo "::set-input name=host::this-is-from-entry"
 
 node index.js
