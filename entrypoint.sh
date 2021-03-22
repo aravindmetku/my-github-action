@@ -2,6 +2,10 @@
 
 set -e
 
+if [[ $1 -eq "TEMP" ]]; then
+  echo "got right input from user"
+fi
+
 if [[ -f "pom.xml" ]]; then
     echo "Maven repository detected. Attempting to generate dependency file"
     mvn --version
