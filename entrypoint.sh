@@ -1,5 +1,6 @@
 #!/bin/sh -l
 
+set -e
 
 if [[ -f "pom.xml" ]]; then
     echo "Maven repository detected. Attempting to generate dependency file"
@@ -16,5 +17,7 @@ if [[ -f "build.gradle" ]]; then
     echo "Gradle repository detected. Attempting to generate dependency file"
     gradle --version
 fi
+
+echo "::set-input name=host::this-is-from-entry"
 
 node index.js
