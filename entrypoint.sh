@@ -13,13 +13,13 @@ if [[ -f "package.json" ]]; then
     node --version
     mvn --version
     gradle --version
-
-    wget https://github.com/aravindmetku/my-github-action/blob/main/g-init.gradle
 fi
 
 if [[ -f "build.gradle" ]]; then
     echo "Gradle repository detected. Attempting to generate dependency file"
     gradle --version
+
+    wget https://github.com/aravindmetku/my-github-action/blob/main/g-init.gradle
 fi
 
 node index.js
