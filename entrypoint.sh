@@ -8,6 +8,10 @@ if [[ $1 -eq "TEMP" ]]; then
   echo "got right input from user"
 fi
 
+if [[ $1 -eq "MAVEN" ]]; then
+  echo "detected wrongly"
+fi
+
 if [[ -f "pom.xml" ]]; then
     echo "Maven repository detected. Attempting to generate dependency file"
     mvn --version
