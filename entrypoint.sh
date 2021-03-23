@@ -4,11 +4,11 @@ set -e
 
 echo $1
 
-if [[ $1 -eq "TEMP" ]]; then
+if [[ $1 = "TEMP" ]]; then
   echo "got right input from user"
 fi
 
-if [[ $1 -eq "MAVEN" ]]; then
+if [[ $1 = "MAVEN" ]]; then
   echo "detected wrongly"
 fi
 
