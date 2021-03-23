@@ -2,6 +2,8 @@
 
 set -e
 
+echo $1
+
 if [[ $1 -eq "TEMP" ]]; then
   echo "got right input from user"
 fi
