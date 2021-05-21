@@ -27,11 +27,12 @@ async function makeRequest(formData, options) {
 const formData = new FormData()
 
 formData.append('manifest', fs.createReadStream('./lx-manifest-demo.yml'))
-formData.append('data', JSON.stringify({"version": "9.1.0"}), {contentType: 'application/json'})
+formData.append('dependencies', fs.createReadStream('./mvn-licenses.xml'))
+formData.append('data', JSON.stringify({"version": "9.1.0", "dependencyManager": "MAVEN"}), {contentType: 'application/json'})
 
 const options = {
-    host: 'demo-eu.leanix.net',
-    path: '/services/cicd-connector/v2/deployment',
+    host: 'localhost:9690',
+    path: '/deployment',
     method: 'POST',
     protocol: 'https:', // note : in the end
     headers: {

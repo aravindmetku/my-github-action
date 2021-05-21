@@ -16,3 +16,4 @@ jobs:
           ref: ${{ github.event.workflow_run.head_branch }}
       - run: git branch
       - run: echo ${{ github.event.workflow_run.conclusion }}
+      - run: echo ${{ github.event.workflow_run.url }}
