@@ -1,0 +1,22 @@
+name: test
+
+on:
+  repository_dispatch:
+    types: [trigger-workflow]
+  push:
+    branches:
+      - development
+  workflow_dispatch:
+
+env:
+  AZURE_FUNCTIONAPP_NAME: githubrepositoryconnector
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
+  NODE_VERSION: '12.x'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@main
+        run: echo "completed"
