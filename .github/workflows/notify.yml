@@ -15,4 +15,4 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
       - run: git branch
-      - run: env
+      - run: echo ${{ github.event.workflow_run.conclusion }}
